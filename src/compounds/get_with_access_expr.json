@@ -1,0 +1,268 @@
+{
+    "header": {
+        "metadata": [
+            {
+                "metaName": "adskFileFormatVersion",
+                "metaValue": "100L"
+            }
+        ]
+    },
+    "namespaces": [],
+    "types": [],
+    "compounds": [
+        {
+            "name": "BifrostJSON::get_with_access_expr",
+            "uriImported": "stream:/bifrostGraphShape1",
+            "metadata": [
+                {
+                    "metaName": "documentation",
+                    "metaType": "string",
+                    "metaValue": "../docs/get_with_access_expr.md"
+                },
+                {
+                    "metaName": "icon",
+                    "metaType": "string",
+                    "metaValue": "../icons/json_logo.svg"
+                },
+                {
+                    "metaName": "internal",
+                    "metaValue": "false"
+                },
+                {
+                    "metaName": "NodeValueDisplay",
+                    "metadata": [
+                        {
+                            "metaName": "format",
+                            "metaType": "string",
+                            "metaValue": "Get expr {access_expr}"
+                        }
+                    ]
+                },
+                {
+                    "metaName": "io_nodes",
+                    "metadata": [
+                        {
+                            "metaName": "io_inodes",
+                            "metadata": [
+                                {
+                                    "metaName": "input",
+                                    "metadata": [
+                                        {
+                                            "metaName": "DisplayMode",
+                                            "metaType": "string",
+                                            "metaValue": "2"
+                                        },
+                                        {
+                                            "metaName": "LayoutPos",
+                                            "metaType": "string",
+                                            "metaValue": "-644 -61"
+                                        },
+                                        {
+                                            "metaName": "io_ports",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "obj_or_arr"
+                                                },
+                                                {
+                                                    "metaName": "access_expr"
+                                                },
+                                                {
+                                                    "metaName": "default_and_type"
+                                                },
+                                                {
+                                                    "metaName": "force_to_any_array"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "metaName": "io_onodes",
+                            "metadata": [
+                                {
+                                    "metaName": "output",
+                                    "metadata": [
+                                        {
+                                            "metaName": "DisplayMode",
+                                            "metaType": "string",
+                                            "metaValue": "2"
+                                        },
+                                        {
+                                            "metaName": "LayoutPos",
+                                            "metaType": "string",
+                                            "metaValue": "224 -103"
+                                        },
+                                        {
+                                            "metaName": "io_ports",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "out_value"
+                                                },
+                                                {
+                                                    "metaName": "success"
+                                                },
+                                                {
+                                                    "metaName": "msg_if_failed"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "metaName": "ViewportRect",
+                    "metaType": "string",
+                    "metaValue": "-869 -241 1739 482"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,BifrostJSON,get_with_access_expr_internal"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,Core::Graph,compound"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,BifrostJSON,read_json"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,Core::Object,get_property"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,Core::Object,set_property"
+                },
+                {
+                    "metaName": "DisplayMode",
+                    "metaType": "string",
+                    "metaValue": "2"
+                },
+                {
+                    "metaName": "LayoutPos",
+                    "metaType": "string",
+                    "metaValue": "114.555 677.499"
+                }
+            ],
+            "ports": [
+                {
+                    "portName": "obj_or_arr",
+                    "portDirection": "input",
+                    "portDefaultType": "Object",
+                    "portDefault": {}
+                },
+                {
+                    "portName": "access_expr",
+                    "portDirection": "input",
+                    "portType": "string",
+                    "portDefault": ""
+                },
+                {
+                    "portName": "default_and_type",
+                    "portDirection": "input",
+                    "portDefaultType": "float",
+                    "portDefault": "0f"
+                },
+                {
+                    "portName": "force_to_any_array",
+                    "portDirection": "input",
+                    "portType": "bool",
+                    "portDefault": "false"
+                },
+                {
+                    "portName": "out_value",
+                    "portDirection": "output"
+                },
+                {
+                    "portName": "success",
+                    "portDirection": "output",
+                    "portType": "bool"
+                },
+                {
+                    "portName": "msg_if_failed",
+                    "portDirection": "output",
+                    "portType": "string"
+                }
+            ],
+            "compoundNodes": [
+                {
+                    "nodeName": "get_with_access_expr_internal",
+                    "nodeType": "BifrostJSON::get_with_access_expr_internal",
+                    "metadata": [
+                        {
+                            "metaName": "DisplayMode",
+                            "metaType": "string",
+                            "metaValue": "2"
+                        },
+                        {
+                            "metaName": "LayoutPos",
+                            "metaType": "string",
+                            "metaValue": "-203.5 -170"
+                        }
+                    ]
+                }
+            ],
+            "connections": [
+                {
+                    "source": ".obj_or_arr",
+                    "target": "get_with_access_expr_internal.obj_or_arr"
+                },
+                {
+                    "source": ".access_expr",
+                    "target": "get_with_access_expr_internal.access_expr"
+                },
+                {
+                    "source": ".default_and_type",
+                    "target": "get_with_access_expr_internal.default_and_type"
+                },
+                {
+                    "source": ".force_to_any_array",
+                    "target": "get_with_access_expr_internal.force_to_any_array"
+                },
+                {
+                    "source": "get_with_access_expr_internal.out_value",
+                    "target": ".out_value"
+                },
+                {
+                    "source": "get_with_access_expr_internal.success",
+                    "target": ".success"
+                },
+                {
+                    "source": "get_with_access_expr_internal.msg_if_failed",
+                    "target": ".msg_if_failed"
+                }
+            ],
+            "values": [
+                {
+                    "valueName": "get_with_access_expr_internal.obj_or_arr",
+                    "valueType": "Object",
+                    "value": {}
+                },
+                {
+                    "valueName": "get_with_access_expr_internal.default_and_type",
+                    "valueType": "float",
+                    "value": "0f"
+                }
+            ],
+            "reservedNodeNames": [
+                {
+                    "name": "input"
+                },
+                {
+                    "name": "output"
+                }
+            ]
+        }
+    ]
+}

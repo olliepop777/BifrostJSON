@@ -1,0 +1,18 @@
+*.dSYM
+*.o
+*.gcno
+*.gcda
+.DS_Store
+__pycache__
+
+# Project files
+bifrost_release_package/
+build_output/
+
+# Visual Studio / Visual Studio Code
+/.vs/
+/.vscode/
+/out/
+
+# jetbrains solutions
+/.idea
