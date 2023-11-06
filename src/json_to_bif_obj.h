@@ -118,6 +118,12 @@ void handle_non_homogenous_array(json& json_data,
     std::size_t json_size,
     ReadSettings& settings);
 
+// JSON data only has a type called number which can either be an int or double
+// in C++. This will return true if and only if the types are both numbers AND
+// different number types. That is, if one type is json::value_t::number_float
+// and the other is (json::value_t::number_integer OR json::value_t::number_unsigned)
+bool is_equivalent_number_type(json::value_t first_type, json::value_t cur_type);
+
 // Traverse once to get all the info we need
 std::size_t get_array_type_info(json& json_data,
     ArrayTypeInfo& array_type_info);

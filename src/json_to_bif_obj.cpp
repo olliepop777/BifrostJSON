@@ -262,6 +262,16 @@ void handle_non_homogenous_array(json& json_data,
     bif_obj->setProperty(amino_key, array_ptr);
 }
 
+bool is_equivalent_number_type(json::value_t first_type, json::value_t cur_type)
+{
+    bool first_is_floating = first_type == json::value_t::number_float;
+    bool second_is_floating = cur_type == json::value_t::number_float;
+    bool first_is_integer = (first_type == json::value_t::number_integer || first_type == json::value_t::number_unsigned);
+    bool second_is_integer = (cur_type == json::value_t::number_integer || cur_type == json::value_t::number_unsigned);
+
+    return (first_is_floating && second_is_integer) || (first_is_integer && second_is_floating);
+}
+
 std::size_t get_array_type_info(json& json_data,
     ArrayTypeInfo& array_type_info)
 {
@@ -276,11 +286,17 @@ std::size_t get_array_type_info(json& json_data,
             return 0;
         }
         if (iter->type() != first_type) {
-            array_type_info.is_homogenous = false;
+            if (is_equivalent_number_type(first_type, iter->type())) {
+                // If they are mixed then force everything to a floating point type
+                first_type = json::value_t::number_float;
+            } else {
+                array_type_info.is_homogenous = false;
+            }
         }
         if (iter->is_array()) {
             level_contains_array = true;
             cur_depth = get_array_type_info(*iter, array_type_info) + 1;
+            // Check if array dimensions are equal throughout
             if (prev_cur_depth != cur_depth && iter != first_iter) {
                 array_type_info.is_homogenous = false;
             }
@@ -292,6 +308,7 @@ std::size_t get_array_type_info(json& json_data,
     }
 
     if (!level_contains_array) {
+        // Check that all the arrays in the level are the same type
         if (array_type_info.type_is_set && array_type_info.json_type != first_type) {
             array_type_info.is_homogenous = false;
         } else {
