@@ -1,0 +1,2434 @@
+{
+    "header": {
+        "metadata": [
+            {
+                "metaName": "adskFileFormatVersion",
+                "metaValue": "100L"
+            }
+        ]
+    },
+    "namespaces": [],
+    "types": [],
+    "compounds": [
+        {
+            "name": "BifrostJSON::read_json_cached",
+            "uriImported": "stream:/bifrostGraphShape1",
+            "metadata": [
+                {
+                    "metaName": "documentation",
+                    "metaType": "string",
+                    "metaValue": "../docs/read_json_cached.md"
+                },
+                {
+                    "metaName": "icon",
+                    "metaType": "string",
+                    "metaValue": "../icons/json_logo.svg"
+                },
+                {
+                    "metaName": "internal",
+                    "metaValue": "false"
+                },
+                {
+                    "metaName": "NodeValueDisplay",
+                    "metadata": [
+                        {
+                            "metaName": "format",
+                            "metaType": "string",
+                            "metaValue": "Read file {json_file}"
+                        }
+                    ]
+                },
+                {
+                    "metaName": "io_nodes",
+                    "metadata": [
+                        {
+                            "metaName": "io_inodes",
+                            "metadata": [
+                                {
+                                    "metaName": "input",
+                                    "metadata": [
+                                        {
+                                            "metaName": "DisplayMode",
+                                            "metaType": "string",
+                                            "metaValue": "2"
+                                        },
+                                        {
+                                            "metaName": "LayoutPos",
+                                            "metaType": "string",
+                                            "metaValue": "-499 -60.5"
+                                        },
+                                        {
+                                            "metaName": "io_ports",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "json_file"
+                                                },
+                                                {
+                                                    "metaName": "json_str"
+                                                },
+                                                {
+                                                    "metaName": "output_a_bifrost_object"
+                                                },
+                                                {
+                                                    "metaName": "output_a_json_str"
+                                                },
+                                                {
+                                                    "metaName": "null_to_string"
+                                                },
+                                                {
+                                                    "metaName": "force_any_arrays"
+                                                },
+                                                {
+                                                    "metaName": "debug"
+                                                },
+                                                {
+                                                    "metaName": "print_indent_level"
+                                                },
+                                                {
+                                                    "metaName": "read_once"
+                                                },
+                                                {
+                                                    "metaName": "read_on_frame"
+                                                },
+                                                {
+                                                    "metaName": "read_frame"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "metaName": "zValue",
+                                            "metaType": "string",
+                                            "metaValue": "32.000000"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "metaName": "io_onodes",
+                            "metadata": [
+                                {
+                                    "metaName": "output",
+                                    "metadata": [
+                                        {
+                                            "metaName": "DisplayMode",
+                                            "metaType": "string",
+                                            "metaValue": "2"
+                                        },
+                                        {
+                                            "metaName": "LayoutPos",
+                                            "metaType": "string",
+                                            "metaValue": "1116.9 -9.56933"
+                                        },
+                                        {
+                                            "metaName": "io_ports",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "out_json_obj"
+                                                },
+                                                {
+                                                    "metaName": "out_json_str"
+                                                },
+                                                {
+                                                    "metaName": "success"
+                                                },
+                                                {
+                                                    "metaName": "msg_if_failed"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "metaName": "zValue",
+                                            "metaType": "string",
+                                            "metaValue": "33.000000"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,Simulation::Common,force_pull_port"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,Core::Graph,compound"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,BifrostJSON,read_json"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,Core::Object,set_property"
+                },
+                {
+                    "metaName": "_recentNode_",
+                    "metaType": "string",
+                    "metaValue": "BifrostGraph,Core::Type_Conversion,from_type_any"
+                },
+                {
+                    "metaName": "ViewportRect",
+                    "metaType": "string",
+                    "metaValue": "-577.925 -237.145 1492.17 890.7"
+                },
+                {
+                    "metaName": "DisplayMode",
+                    "metaType": "string",
+                    "metaValue": "2"
+                },
+                {
+                    "metaName": "LayoutPos",
+                    "metaType": "string",
+                    "metaValue": "-199.958 -10"
+                },
+                {
+                    "metaName": "zValue",
+                    "metaType": "string",
+                    "metaValue": "34.000000"
+                },
+                {
+                    "metaName": "UILayout",
+                    "metaType": "string",
+                    "metaValue": "{\n    \"NodeLayout\": {\n        \"hideUndeclaredPorts\": false,\n        \"items\": [\n            {\n                \"port\": \"json_file\"\n            },\n            {\n                \"port\": \"json_str\"\n            },\n            {\n                \"port\": \"read_once\"\n            },\n            {\n                \"port\": \"read_on_frame\"\n            },\n            {\n                \"port\": \"read_frame\"\n            },\n            {\n                \"expanded\": false,\n                \"group\": \"Settings\",\n                \"items\": [\n                    {\n                        \"port\": \"output_a_bifrost_object\"\n                    },\n                    {\n                        \"port\": \"output_a_json_str\"\n                    },\n                    {\n                        \"port\": \"null_to_string\"\n                    },\n                    {\n                        \"port\": \"force_any_arrays\"\n                    },\n                    {\n                        \"port\": \"debug\"\n                    },\n                    {\n                        \"port\": \"print_indent_level\"\n                    }\n                ]\n            }\n        ]\n    }\n}\n"
+                },
+                {
+                    "metaName": "PortExpandedState",
+                    "metadata": [
+                        {
+                            "metaName": "Settings",
+                            "metaType": "string",
+                            "metaValue": "0"
+                        }
+                    ]
+                }
+            ],
+            "ports": [
+                {
+                    "portName": "json_file",
+                    "portDirection": "input",
+                    "portType": "string",
+                    "portDefault": "",
+                    "metadata": [
+                        {
+                            "metaName": "UIWidgetProp",
+                            "metaType": "string",
+                            "metaValue": "browserMode=open;filter=\"JSON (*.json);;All (*.*)\""
+                        },
+                        {
+                            "metaName": "UIWidget",
+                            "metaType": "string",
+                            "metaValue": "FileBrowserWidget"
+                        }
+                    ]
+                },
+                {
+                    "portName": "json_str",
+                    "portDirection": "input",
+                    "portType": "string",
+                    "portDefault": ""
+                },
+                {
+                    "portName": "output_a_bifrost_object",
+                    "portDirection": "input",
+                    "portType": "bool",
+                    "portDefault": "true"
+                },
+                {
+                    "portName": "output_a_json_str",
+                    "portDirection": "input",
+                    "portType": "bool",
+                    "portDefault": "false"
+                },
+                {
+                    "portName": "null_to_string",
+                    "portDirection": "input",
+                    "portType": "bool",
+                    "portDefault": "false"
+                },
+                {
+                    "portName": "force_any_arrays",
+                    "portDirection": "input",
+                    "portType": "bool",
+                    "portDefault": "false"
+                },
+                {
+                    "portName": "debug",
+                    "portDirection": "input",
+                    "portType": "bool",
+                    "portDefault": "false"
+                },
+                {
+                    "portName": "print_indent_level",
+                    "portDirection": "input",
+                    "portType": "int",
+                    "portDefault": "4L"
+                },
+                {
+                    "portName": "out_json_obj",
+                    "portDirection": "output",
+                    "portType": "Object"
+                },
+                {
+                    "portName": "out_json_str",
+                    "portDirection": "output",
+                    "portType": "string"
+                },
+                {
+                    "portName": "success",
+                    "portDirection": "output",
+                    "portType": "bool"
+                },
+                {
+                    "portName": "msg_if_failed",
+                    "portDirection": "output",
+                    "portType": "string"
+                },
+                {
+                    "portName": "read_once",
+                    "portDirection": "input",
+                    "portType": "bool",
+                    "portDefault": "true"
+                },
+                {
+                    "portName": "read_on_frame",
+                    "portDirection": "input",
+                    "portType": "bool",
+                    "portDefault": "false"
+                },
+                {
+                    "portName": "read_frame",
+                    "portDirection": "input",
+                    "portType": "float",
+                    "portDefault": "1f"
+                }
+            ],
+            "compounds": [
+                {
+                    "name": "cache_logic",
+                    "uriImported": "stream:/bifrostGraphShape1",
+                    "metadata": [
+                        {
+                            "metaName": "io_nodes",
+                            "metadata": [
+                                {
+                                    "metaName": "io_inodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "input",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "-1161 -91"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "json_obj"
+                                                        },
+                                                        {
+                                                            "metaName": "json_str"
+                                                        },
+                                                        {
+                                                            "metaName": "success"
+                                                        },
+                                                        {
+                                                            "metaName": "msg_if_failed"
+                                                        },
+                                                        {
+                                                            "metaName": "read_once"
+                                                        },
+                                                        {
+                                                            "metaName": "read_on_frame"
+                                                        },
+                                                        {
+                                                            "metaName": "read_frame"
+                                                        },
+                                                        {
+                                                            "metaName": "has_read_feedback"
+                                                        },
+                                                        {
+                                                            "metaName": "json_obj_feedback"
+                                                        },
+                                                        {
+                                                            "metaName": "json_str_feedback"
+                                                        },
+                                                        {
+                                                            "metaName": "success_feedback"
+                                                        },
+                                                        {
+                                                            "metaName": "msg_if_failed_feedback"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "metaName": "zValue",
+                                                    "metaType": "string",
+                                                    "metaValue": "47.000000"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "metaName": "io_onodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "output",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "2150.1 245.232"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "out_json_obj"
+                                                        },
+                                                        {
+                                                            "metaName": "out_json_str"
+                                                        },
+                                                        {
+                                                            "metaName": "out_success"
+                                                        },
+                                                        {
+                                                            "metaName": "out_msg_if_failed"
+                                                        },
+                                                        {
+                                                            "metaName": "out_has_read"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "metaName": "zValue",
+                                                    "metaType": "string",
+                                                    "metaValue": "49.000000"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "metaName": "backdrop1",
+                            "metadata": [
+                                {
+                                    "metaName": "type",
+                                    "metaType": "string",
+                                    "metaValue": "backdrop"
+                                },
+                                {
+                                    "metaName": "coords",
+                                    "metaType": "string",
+                                    "metaValue": "-1030 414.453 860 602.547"
+                                },
+                                {
+                                    "metaName": "color",
+                                    "metaType": "string",
+                                    "metaValue": "#28c85252"
+                                },
+                                {
+                                    "metaName": "title",
+                                    "metaType": "string",
+                                    "metaValue": "Read On Frame Logic"
+                                }
+                            ]
+                        },
+                        {
+                            "metaName": "backdrop2",
+                            "metadata": [
+                                {
+                                    "metaName": "type",
+                                    "metaType": "string",
+                                    "metaValue": "backdrop"
+                                },
+                                {
+                                    "metaName": "coords",
+                                    "metaType": "string",
+                                    "metaValue": "-802 -256.547 576 512.547"
+                                },
+                                {
+                                    "metaName": "color",
+                                    "metaType": "string",
+                                    "metaValue": "#2835b073"
+                                },
+                                {
+                                    "metaName": "title",
+                                    "metaType": "string",
+                                    "metaValue": "Read Once Logic"
+                                }
+                            ]
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Logic,and"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Logic,if"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Logic,or"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Time,time"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Logic,equal"
+                        },
+                        {
+                            "metaName": "ViewportRect",
+                            "metaType": "string",
+                            "metaValue": "628.009 177.759 2003.35 1195.83"
+                        }
+                    ],
+                    "ports": [
+                        {
+                            "portName": "json_obj",
+                            "portDirection": "input",
+                            "portType": "Object"
+                        },
+                        {
+                            "portName": "json_str",
+                            "portDirection": "input",
+                            "portType": "string"
+                        },
+                        {
+                            "portName": "success",
+                            "portDirection": "input",
+                            "portType": "bool"
+                        },
+                        {
+                            "portName": "msg_if_failed",
+                            "portDirection": "input",
+                            "portType": "string"
+                        },
+                        {
+                            "portName": "read_once",
+                            "portDirection": "input",
+                            "portType": "bool"
+                        },
+                        {
+                            "portName": "read_on_frame",
+                            "portDirection": "input",
+                            "portType": "bool"
+                        },
+                        {
+                            "portName": "read_frame",
+                            "portDirection": "input",
+                            "portType": "float"
+                        },
+                        {
+                            "portName": "out_json_obj",
+                            "portDirection": "output",
+                            "portType": "Object"
+                        },
+                        {
+                            "portName": "out_json_str",
+                            "portDirection": "output",
+                            "portType": "string"
+                        },
+                        {
+                            "portName": "has_read_feedback",
+                            "portDirection": "input",
+                            "portType": "bool",
+                            "linkedFeedbackPort": "out_has_read"
+                        },
+                        {
+                            "portName": "json_obj_feedback",
+                            "portDirection": "input",
+                            "portType": "Object",
+                            "linkedFeedbackPort": "out_json_obj"
+                        },
+                        {
+                            "portName": "json_str_feedback",
+                            "portDirection": "input",
+                            "portType": "string",
+                            "linkedFeedbackPort": "out_json_str"
+                        },
+                        {
+                            "portName": "out_success",
+                            "portDirection": "output",
+                            "portType": "bool"
+                        },
+                        {
+                            "portName": "success_feedback",
+                            "portDirection": "input",
+                            "portType": "bool",
+                            "linkedFeedbackPort": "out_success"
+                        },
+                        {
+                            "portName": "out_msg_if_failed",
+                            "portDirection": "output",
+                            "portType": "string"
+                        },
+                        {
+                            "portName": "msg_if_failed_feedback",
+                            "portDirection": "input",
+                            "portType": "string",
+                            "linkedFeedbackPort": "out_msg_if_failed"
+                        },
+                        {
+                            "portName": "out_has_read",
+                            "portDirection": "output",
+                            "portType": "bool"
+                        }
+                    ],
+                    "compoundNodes": [
+                        {
+                            "nodeName": "if",
+                            "nodeType": "Core::Logic::if",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "1352.49 -92.5238"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "31.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "if1",
+                            "nodeType": "Core::Logic::if",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "1372.03 211.111"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "32.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "not",
+                            "nodeType": "Core::Logic::not",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "-792 -181"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "33.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "not1",
+                            "nodeType": "Core::Logic::not",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "-427 490"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "34.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "not2",
+                            "nodeType": "Core::Logic::not",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "-768 71"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "35.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "read_once_AND_not_has_read",
+                            "nodeType": "Core::Logic::and",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "-497 9"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "36.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "not_read_once_OR_read_once_and_not_has_read",
+                            "nodeType": "Core::Logic::or",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "65.1115 -95.1577"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "37.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "read_on_frame_AND_cur_time_equal_read_frame",
+                            "nodeType": "Core::Logic::and",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "-405 685"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "38.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "equal",
+                            "nodeType": "Core::Logic::equal",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "-695 720"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "39.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "time",
+                            "nodeType": "Core::Time::time",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "-1020 784"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "40.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "not_read_on_frame_OR_read_on_frame_and_cur_time_equal_read_frame",
+                            "nodeType": "Core::Logic::or",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "-20.029 559.181"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "41.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "and1",
+                            "nodeType": "Core::Logic::and",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "846.474 377.31"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "42.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "if2",
+                            "nodeType": "Core::Logic::if",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "1373.5 436.604"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "43.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "if3",
+                            "nodeType": "Core::Logic::if",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "1365.49 669.293"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "44.000000"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "if4",
+                            "nodeType": "Core::Logic::if",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "58.000000"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "1363.2 922.705"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "value",
+                            "valueType": "bool",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "valuenode_defaultvalue",
+                                    "metaType": "string",
+                                    "metaValue": "0"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "57.000000"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "1053.28 1005.91"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "ensure_success",
+                            "nodeType": "Core::Logic::and",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "zValue",
+                                    "metaType": "string",
+                                    "metaValue": "56.000000"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "1050.67 791.337"
+                                }
+                            ]
+                        }
+                    ],
+                    "connections": [
+                        {
+                            "source": ".json_obj",
+                            "target": "if.true_case"
+                        },
+                        {
+                            "source": ".json_str",
+                            "target": "if1.true_case"
+                        },
+                        {
+                            "source": ".read_once",
+                            "target": "not.value"
+                        },
+                        {
+                            "source": ".read_on_frame",
+                            "target": "not1.value"
+                        },
+                        {
+                            "source": ".has_read_feedback",
+                            "target": "not2.value"
+                        },
+                        {
+                            "source": ".read_once",
+                            "target": "read_once_AND_not_has_read.first"
+                        },
+                        {
+                            "source": "not2.output",
+                            "target": "read_once_AND_not_has_read.second"
+                        },
+                        {
+                            "source": "read_once_AND_not_has_read.output",
+                            "target": "not_read_once_OR_read_once_and_not_has_read.second"
+                        },
+                        {
+                            "source": "not.output",
+                            "target": "not_read_once_OR_read_once_and_not_has_read.first"
+                        },
+                        {
+                            "source": ".read_on_frame",
+                            "target": "read_on_frame_AND_cur_time_equal_read_frame.first"
+                        },
+                        {
+                            "source": "time.frame",
+                            "target": "equal.second"
+                        },
+                        {
+                            "source": ".read_frame",
+                            "target": "equal.first"
+                        },
+                        {
+                            "source": "equal.output",
+                            "target": "read_on_frame_AND_cur_time_equal_read_frame.second"
+                        },
+                        {
+                            "source": "not1.output",
+                            "target": "not_read_on_frame_OR_read_on_frame_and_cur_time_equal_read_frame.first"
+                        },
+                        {
+                            "source": "read_on_frame_AND_cur_time_equal_read_frame.output",
+                            "target": "not_read_on_frame_OR_read_on_frame_and_cur_time_equal_read_frame.second"
+                        },
+                        {
+                            "source": "not_read_once_OR_read_once_and_not_has_read.output",
+                            "target": "and1.first"
+                        },
+                        {
+                            "source": "not_read_on_frame_OR_read_on_frame_and_cur_time_equal_read_frame.output",
+                            "target": "and1.second"
+                        },
+                        {
+                            "source": "and1.output",
+                            "target": "if.condition"
+                        },
+                        {
+                            "source": "and1.output",
+                            "target": "if1.condition"
+                        },
+                        {
+                            "source": ".json_obj_feedback",
+                            "target": "if.false_case"
+                        },
+                        {
+                            "source": ".json_str_feedback",
+                            "target": "if1.false_case"
+                        },
+                        {
+                            "source": "and1.output",
+                            "target": "if2.condition"
+                        },
+                        {
+                            "source": ".success",
+                            "target": "if2.true_case"
+                        },
+                        {
+                            "source": ".success_feedback",
+                            "target": "if2.false_case"
+                        },
+                        {
+                            "source": "and1.output",
+                            "target": "if3.condition"
+                        },
+                        {
+                            "source": ".msg_if_failed",
+                            "target": "if3.true_case"
+                        },
+                        {
+                            "source": ".msg_if_failed_feedback",
+                            "target": "if3.false_case"
+                        },
+                        {
+                            "source": "if.output",
+                            "target": ".out_json_obj"
+                        },
+                        {
+                            "source": "if1.output",
+                            "target": ".out_json_str"
+                        },
+                        {
+                            "source": "if2.output",
+                            "target": ".out_success"
+                        },
+                        {
+                            "source": "if3.output",
+                            "target": ".out_msg_if_failed"
+                        },
+                        {
+                            "source": "value.output",
+                            "target": "if4.true_case"
+                        },
+                        {
+                            "source": ".has_read_feedback",
+                            "target": "if4.condition"
+                        },
+                        {
+                            "source": ".success",
+                            "target": "ensure_success.first"
+                        },
+                        {
+                            "source": "if4.output",
+                            "target": ".out_has_read"
+                        },
+                        {
+                            "source": "and1.output",
+                            "target": "ensure_success.second"
+                        },
+                        {
+                            "source": "ensure_success.output",
+                            "target": "if4.false_case"
+                        }
+                    ],
+                    "values": [
+                        {
+                            "valueName": "value.value",
+                            "valueType": "bool",
+                            "value": "true"
+                        }
+                    ],
+                    "reservedNodeNames": [
+                        {
+                            "name": "input"
+                        },
+                        {
+                            "name": "output"
+                        }
+                    ]
+                },
+                {
+                    "name": "force_pull_port",
+                    "uriImported": "stream:/bifrostGraphShape1",
+                    "metadata": [
+                        {
+                            "metaName": "documentation",
+                            "metaType": "string",
+                            "metaValue": "../docs/${language}/force_pull_port.md"
+                        },
+                        {
+                            "metaName": "io_nodes",
+                            "metadata": [
+                                {
+                                    "metaName": "io_inodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "input",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "10 314"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "value"
+                                                        },
+                                                        {
+                                                            "metaName": "pull"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "metaName": "io_onodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "output",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "1230 145"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "out_value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Object,set_property"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Graph,pass"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Type_Conversion,to_type_any"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostBoard,Core::Object,get_property"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostBoard,Core::Object,set_property"
+                        },
+                        {
+                            "metaName": "ViewportRect",
+                            "metaType": "string",
+                            "metaValue": "-70.0014 -293.59 1605.71 1111.74"
+                        }
+                    ],
+                    "ports": [
+                        {
+                            "portName": "value",
+                            "portDirection": "input"
+                        },
+                        {
+                            "portName": "pull",
+                            "portDirection": "input"
+                        },
+                        {
+                            "portName": "out_value",
+                            "portDirection": "output"
+                        }
+                    ],
+                    "compoundNodes": [
+                        {
+                            "nodeName": "empty_object",
+                            "valueType": "Object",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "315 10"
+                                },
+                                {
+                                    "metaName": "valuenode_defaultvalue"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "get_property",
+                            "nodeType": "Core::Object::get_property",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "925 157"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "pass",
+                            "nodeType": "Core::Graph::pass",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "620 327"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "pass1",
+                            "nodeType": "Core::Graph::pass",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "315 205"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "set_property",
+                            "nodeType": "Core::Object::set_property",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "620 84"
+                                }
+                            ]
+                        }
+                    ],
+                    "connections": [
+                        {
+                            "source": "get_property.value",
+                            "target": ".out_value"
+                        },
+                        {
+                            "source": ".value",
+                            "target": "pass.input"
+                        },
+                        {
+                            "source": "pass.output",
+                            "target": "get_property.default_and_type"
+                        },
+                        {
+                            "source": ".pull",
+                            "target": "pass1.input"
+                        },
+                        {
+                            "source": "empty_object.output",
+                            "target": "set_property.object"
+                        },
+                        {
+                            "source": "set_property.out_object",
+                            "target": "get_property.object"
+                        },
+                        {
+                            "source": "pass1.output",
+                            "target": "set_property.value"
+                        }
+                    ],
+                    "values": [
+                        {
+                            "valueName": "empty_object.value",
+                            "valueType": "Object",
+                            "value": {}
+                        },
+                        {
+                            "valueName": "get_property.key",
+                            "valueType": "string",
+                            "value": "this key won't exist"
+                        },
+                        {
+                            "valueName": "set_property.key",
+                            "valueType": "string",
+                            "value": "dummy"
+                        }
+                    ],
+                    "reservedNodeNames": [
+                        {
+                            "name": "input"
+                        },
+                        {
+                            "name": "output"
+                        }
+                    ]
+                },
+                {
+                    "name": "force_pull_port1",
+                    "uriImported": "stream:/bifrostGraphShape1",
+                    "metadata": [
+                        {
+                            "metaName": "documentation",
+                            "metaType": "string",
+                            "metaValue": "../docs/${language}/force_pull_port.md"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Object,set_property"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Graph,pass"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Type_Conversion,to_type_any"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostBoard,Core::Object,get_property"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostBoard,Core::Object,set_property"
+                        },
+                        {
+                            "metaName": "ViewportRect",
+                            "metaType": "string",
+                            "metaValue": "-70.0014 -293.59 1605.71 1111.74"
+                        },
+                        {
+                            "metaName": "io_nodes",
+                            "metadata": [
+                                {
+                                    "metaName": "io_inodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "input",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "10 314"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "value"
+                                                        },
+                                                        {
+                                                            "metaName": "pull"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "metaName": "io_onodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "output",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "1230 145"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "out_value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "ports": [
+                        {
+                            "portName": "value",
+                            "portDirection": "input"
+                        },
+                        {
+                            "portName": "pull",
+                            "portDirection": "input"
+                        },
+                        {
+                            "portName": "out_value",
+                            "portDirection": "output"
+                        }
+                    ],
+                    "compoundNodes": [
+                        {
+                            "nodeName": "empty_object",
+                            "valueType": "Object",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "315 10"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "get_property",
+                            "nodeType": "Core::Object::get_property",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "925 157"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "pass",
+                            "nodeType": "Core::Graph::pass",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "620 327"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "pass1",
+                            "nodeType": "Core::Graph::pass",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "315 205"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "set_property",
+                            "nodeType": "Core::Object::set_property",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "620 84"
+                                }
+                            ]
+                        }
+                    ],
+                    "connections": [
+                        {
+                            "source": "empty_object.output",
+                            "target": "set_property.object"
+                        },
+                        {
+                            "source": "get_property.value",
+                            "target": ".out_value"
+                        },
+                        {
+                            "source": "pass.output",
+                            "target": "get_property.default_and_type"
+                        },
+                        {
+                            "source": "pass1.output",
+                            "target": "set_property.value"
+                        },
+                        {
+                            "source": "set_property.out_object",
+                            "target": "get_property.object"
+                        },
+                        {
+                            "source": ".value",
+                            "target": "pass.input"
+                        },
+                        {
+                            "source": ".pull",
+                            "target": "pass1.input"
+                        }
+                    ],
+                    "values": [
+                        {
+                            "valueName": "empty_object.value",
+                            "valueType": "Object",
+                            "value": {}
+                        },
+                        {
+                            "valueName": "get_property.key",
+                            "valueType": "string",
+                            "value": "this key won't exist"
+                        },
+                        {
+                            "valueName": "set_property.key",
+                            "valueType": "string",
+                            "value": "dummy"
+                        }
+                    ],
+                    "reservedNodeNames": [
+                        {
+                            "name": "input"
+                        },
+                        {
+                            "name": "output"
+                        }
+                    ]
+                },
+                {
+                    "name": "force_pull_port2",
+                    "uriImported": "stream:/bifrostGraphShape1",
+                    "metadata": [
+                        {
+                            "metaName": "documentation",
+                            "metaType": "string",
+                            "metaValue": "../docs/${language}/force_pull_port.md"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Object,set_property"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Graph,pass"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Type_Conversion,to_type_any"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostBoard,Core::Object,get_property"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostBoard,Core::Object,set_property"
+                        },
+                        {
+                            "metaName": "ViewportRect",
+                            "metaType": "string",
+                            "metaValue": "-70.0014 -293.59 1605.71 1111.74"
+                        },
+                        {
+                            "metaName": "io_nodes",
+                            "metadata": [
+                                {
+                                    "metaName": "io_inodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "input",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "10 314"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "value"
+                                                        },
+                                                        {
+                                                            "metaName": "pull"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "metaName": "io_onodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "output",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "1230 145"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "out_value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "ports": [
+                        {
+                            "portName": "value",
+                            "portDirection": "input"
+                        },
+                        {
+                            "portName": "pull",
+                            "portDirection": "input"
+                        },
+                        {
+                            "portName": "out_value",
+                            "portDirection": "output"
+                        }
+                    ],
+                    "compoundNodes": [
+                        {
+                            "nodeName": "empty_object",
+                            "valueType": "Object",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "315 10"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "get_property",
+                            "nodeType": "Core::Object::get_property",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "925 157"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "pass",
+                            "nodeType": "Core::Graph::pass",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "620 327"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "pass1",
+                            "nodeType": "Core::Graph::pass",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "315 205"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "set_property",
+                            "nodeType": "Core::Object::set_property",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "620 84"
+                                }
+                            ]
+                        }
+                    ],
+                    "connections": [
+                        {
+                            "source": "empty_object.output",
+                            "target": "set_property.object"
+                        },
+                        {
+                            "source": "get_property.value",
+                            "target": ".out_value"
+                        },
+                        {
+                            "source": "pass.output",
+                            "target": "get_property.default_and_type"
+                        },
+                        {
+                            "source": "pass1.output",
+                            "target": "set_property.value"
+                        },
+                        {
+                            "source": "set_property.out_object",
+                            "target": "get_property.object"
+                        },
+                        {
+                            "source": ".value",
+                            "target": "pass.input"
+                        },
+                        {
+                            "source": ".pull",
+                            "target": "pass1.input"
+                        }
+                    ],
+                    "values": [
+                        {
+                            "valueName": "empty_object.value",
+                            "valueType": "Object",
+                            "value": {}
+                        },
+                        {
+                            "valueName": "get_property.key",
+                            "valueType": "string",
+                            "value": "this key won't exist"
+                        },
+                        {
+                            "valueName": "set_property.key",
+                            "valueType": "string",
+                            "value": "dummy"
+                        }
+                    ],
+                    "reservedNodeNames": [
+                        {
+                            "name": "input"
+                        },
+                        {
+                            "name": "output"
+                        }
+                    ]
+                },
+                {
+                    "name": "force_pull_port3",
+                    "uriImported": "stream:/bifrostGraphShape1",
+                    "metadata": [
+                        {
+                            "metaName": "documentation",
+                            "metaType": "string",
+                            "metaValue": "../docs/${language}/force_pull_port.md"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Object,set_property"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Graph,pass"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostGraph,Core::Type_Conversion,to_type_any"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostBoard,Core::Object,get_property"
+                        },
+                        {
+                            "metaName": "_recentNode_",
+                            "metaType": "string",
+                            "metaValue": "BifrostBoard,Core::Object,set_property"
+                        },
+                        {
+                            "metaName": "ViewportRect",
+                            "metaType": "string",
+                            "metaValue": "-70.0014 -293.59 1605.71 1111.74"
+                        },
+                        {
+                            "metaName": "io_nodes",
+                            "metadata": [
+                                {
+                                    "metaName": "io_inodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "input",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "10 314"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "value"
+                                                        },
+                                                        {
+                                                            "metaName": "pull"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "metaName": "io_onodes",
+                                    "metadata": [
+                                        {
+                                            "metaName": "output",
+                                            "metadata": [
+                                                {
+                                                    "metaName": "DisplayMode",
+                                                    "metaType": "string",
+                                                    "metaValue": "2"
+                                                },
+                                                {
+                                                    "metaName": "LayoutPos",
+                                                    "metaType": "string",
+                                                    "metaValue": "1230 145"
+                                                },
+                                                {
+                                                    "metaName": "io_ports",
+                                                    "metadata": [
+                                                        {
+                                                            "metaName": "out_value"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "ports": [
+                        {
+                            "portName": "value",
+                            "portDirection": "input"
+                        },
+                        {
+                            "portName": "pull",
+                            "portDirection": "input"
+                        },
+                        {
+                            "portName": "out_value",
+                            "portDirection": "output"
+                        }
+                    ],
+                    "compoundNodes": [
+                        {
+                            "nodeName": "empty_object",
+                            "valueType": "Object",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "315 10"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "get_property",
+                            "nodeType": "Core::Object::get_property",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "925 157"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "pass",
+                            "nodeType": "Core::Graph::pass",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "620 327"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "pass1",
+                            "nodeType": "Core::Graph::pass",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "315 205"
+                                }
+                            ]
+                        },
+                        {
+                            "nodeName": "set_property",
+                            "nodeType": "Core::Object::set_property",
+                            "metadata": [
+                                {
+                                    "metaName": "DisplayMode",
+                                    "metaType": "string",
+                                    "metaValue": "2"
+                                },
+                                {
+                                    "metaName": "LayoutPos",
+                                    "metaType": "string",
+                                    "metaValue": "620 84"
+                                }
+                            ]
+                        }
+                    ],
+                    "connections": [
+                        {
+                            "source": "empty_object.output",
+                            "target": "set_property.object"
+                        },
+                        {
+                            "source": "get_property.value",
+                            "target": ".out_value"
+                        },
+                        {
+                            "source": "pass.output",
+                            "target": "get_property.default_and_type"
+                        },
+                        {
+                            "source": "pass1.output",
+                            "target": "set_property.value"
+                        },
+                        {
+                            "source": "set_property.out_object",
+                            "target": "get_property.object"
+                        },
+                        {
+                            "source": ".value",
+                            "target": "pass.input"
+                        },
+                        {
+                            "source": ".pull",
+                            "target": "pass1.input"
+                        }
+                    ],
+                    "values": [
+                        {
+                            "valueName": "empty_object.value",
+                            "valueType": "Object",
+                            "value": {}
+                        },
+                        {
+                            "valueName": "get_property.key",
+                            "valueType": "string",
+                            "value": "this key won't exist"
+                        },
+                        {
+                            "valueName": "set_property.key",
+                            "valueType": "string",
+                            "value": "dummy"
+                        }
+                    ],
+                    "reservedNodeNames": [
+                        {
+                            "name": "input"
+                        },
+                        {
+                            "name": "output"
+                        }
+                    ]
+                }
+            ],
+            "compoundNodes": [
+                {
+                    "nodeName": "read_json",
+                    "nodeType": "BifrostJSON::read_json",
+                    "metadata": [
+                        {
+                            "metaName": "DisplayMode",
+                            "metaType": "string",
+                            "metaValue": "2"
+                        },
+                        {
+                            "metaName": "LayoutPos",
+                            "metaType": "string",
+                            "metaValue": "-182.492 -207.466"
+                        },
+                        {
+                            "metaName": "zValue",
+                            "metaType": "string",
+                            "metaValue": "31.000000"
+                        }
+                    ]
+                },
+                {
+                    "nodeName": "cache_logic",
+                    "nodeType": "cache_logic",
+                    "metadata": [
+                        {
+                            "metaName": "DisplayMode",
+                            "metaType": "string",
+                            "metaValue": "2"
+                        },
+                        {
+                            "metaName": "LayoutPos",
+                            "metaType": "string",
+                            "metaValue": "188.493 -26.6526"
+                        },
+                        {
+                            "metaName": "zValue",
+                            "metaType": "string",
+                            "metaValue": "39.000000"
+                        }
+                    ]
+                },
+                {
+                    "nodeName": "force_pull_port",
+                    "nodeType": "force_pull_port",
+                    "metadata": [
+                        {
+                            "metaName": "DisplayMode",
+                            "metaType": "string",
+                            "metaValue": "2"
+                        },
+                        {
+                            "metaName": "LayoutPos",
+                            "metaType": "string",
+                            "metaValue": "518.894 -286.577"
+                        },
+                        {
+                            "metaName": "zValue",
+                            "metaType": "string",
+                            "metaValue": "36.000000"
+                        }
+                    ]
+                },
+                {
+                    "nodeName": "force_pull_port1",
+                    "nodeType": "force_pull_port1",
+                    "metadata": [
+                        {
+                            "metaName": "DisplayMode",
+                            "metaType": "string",
+                            "metaValue": "2"
+                        },
+                        {
+                            "metaName": "LayoutPos",
+                            "metaType": "string",
+                            "metaValue": "541.681 -16.8084"
+                        },
+                        {
+                            "metaName": "zValue",
+                            "metaType": "string",
+                            "metaValue": "37.000000"
+                        }
+                    ]
+                },
+                {
+                    "nodeName": "force_pull_port2",
+                    "nodeType": "force_pull_port2",
+                    "metadata": [
+                        {
+                            "metaName": "DisplayMode",
+                            "metaType": "string",
+                            "metaValue": "2"
+                        },
+                        {
+                            "metaName": "LayoutPos",
+                            "metaType": "string",
+                            "metaValue": "518.345 238.189"
+                        },
+                        {
+                            "metaName": "zValue",
+                            "metaType": "string",
+                            "metaValue": "34.000000"
+                        }
+                    ]
+                },
+                {
+                    "nodeName": "force_pull_port3",
+                    "nodeType": "force_pull_port3",
+                    "metadata": [
+                        {
+                            "metaName": "DisplayMode",
+                            "metaType": "string",
+                            "metaValue": "2"
+                        },
+                        {
+                            "metaName": "LayoutPos",
+                            "metaType": "string",
+                            "metaValue": "518.894 487.851"
+                        },
+                        {
+                            "metaName": "zValue",
+                            "metaType": "string",
+                            "metaValue": "35.000000"
+                        }
+                    ]
+                }
+            ],
+            "connections": [
+                {
+                    "source": ".json_file",
+                    "target": "read_json.json_file"
+                },
+                {
+                    "source": ".json_str",
+                    "target": "read_json.json_str"
+                },
+                {
+                    "source": ".output_a_bifrost_object",
+                    "target": "read_json.output_a_bifrost_object"
+                },
+                {
+                    "source": ".output_a_json_str",
+                    "target": "read_json.output_a_json_str"
+                },
+                {
+                    "source": ".null_to_string",
+                    "target": "read_json.null_to_string"
+                },
+                {
+                    "source": ".force_any_arrays",
+                    "target": "read_json.force_any_arrays"
+                },
+                {
+                    "source": ".debug",
+                    "target": "read_json.debug"
+                },
+                {
+                    "source": ".print_indent_level",
+                    "target": "read_json.print_indent_level"
+                },
+                {
+                    "source": "read_json.out_json_obj",
+                    "target": "cache_logic.json_obj"
+                },
+                {
+                    "source": "read_json.out_json_str",
+                    "target": "cache_logic.json_str"
+                },
+                {
+                    "source": "read_json.success",
+                    "target": "cache_logic.success"
+                },
+                {
+                    "source": "read_json.msg_if_failed",
+                    "target": "cache_logic.msg_if_failed"
+                },
+                {
+                    "source": ".read_once",
+                    "target": "cache_logic.read_once"
+                },
+                {
+                    "source": ".read_on_frame",
+                    "target": "cache_logic.read_on_frame"
+                },
+                {
+                    "source": ".read_frame",
+                    "target": "cache_logic.read_frame"
+                },
+                {
+                    "source": "cache_logic.out_json_obj",
+                    "target": "force_pull_port.value"
+                },
+                {
+                    "source": "cache_logic.out_has_read",
+                    "target": "force_pull_port.pull"
+                },
+                {
+                    "source": "cache_logic.out_has_read",
+                    "target": "force_pull_port1.pull"
+                },
+                {
+                    "source": "cache_logic.out_has_read",
+                    "target": "force_pull_port2.pull"
+                },
+                {
+                    "source": "cache_logic.out_has_read",
+                    "target": "force_pull_port3.pull"
+                },
+                {
+                    "source": "cache_logic.out_json_str",
+                    "target": "force_pull_port1.value"
+                },
+                {
+                    "source": "cache_logic.out_success",
+                    "target": "force_pull_port2.value"
+                },
+                {
+                    "source": "cache_logic.out_msg_if_failed",
+                    "target": "force_pull_port3.value"
+                },
+                {
+                    "source": "force_pull_port.out_value",
+                    "target": ".out_json_obj"
+                },
+                {
+                    "source": "force_pull_port1.out_value",
+                    "target": ".out_json_str"
+                },
+                {
+                    "source": "force_pull_port2.out_value",
+                    "target": ".success"
+                },
+                {
+                    "source": "force_pull_port3.out_value",
+                    "target": ".msg_if_failed"
+                }
+            ],
+            "values": [
+                {
+                    "valueName": "cache_logic.json_obj",
+                    "valueType": "Object",
+                    "value": {}
+                },
+                {
+                    "valueName": "cache_logic.json_str",
+                    "valueType": "string",
+                    "value": ""
+                },
+                {
+                    "valueName": "cache_logic.success",
+                    "valueType": "bool",
+                    "value": "false"
+                },
+                {
+                    "valueName": "cache_logic.msg_if_failed",
+                    "valueType": "string",
+                    "value": ""
+                }
+            ],
+            "reservedNodeNames": [
+                {
+                    "name": "input"
+                },
+                {
+                    "name": "output"
+                }
+            ]
+        }
+    ]
+}
