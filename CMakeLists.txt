@@ -10,11 +10,15 @@ if( NOT BIFROST_LOCATION )
     endif()
 endif()
 
+if( NOT BIFROST_JSON_RELEASE_VERSION )
+    set( BIFROST_JSON_RELEASE_VERSION 1.0.0)
+endif()
+
 set(CMAKE_CXX_STANDARD 17)
 # Project Name
 project(
     BifrostJSON 
-    VERSION 1.0.0
+    VERSION ${BIFROST_JSON_RELEASE_VERSION}
     LANGUAGES CXX
 )
 
