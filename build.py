@@ -15,7 +15,10 @@ PLATFORM_INFO = {
         "bifrost_path": "/Applications/Autodesk/bifrost/",
         "nice_platform_name": "macOS"
     },
-    "Linux": {}
+    "Linux": {
+        "bifrost_path": "/usr/autodesk/bifrost/",
+        "nice_platform_name": "linux"
+    }
 }
 CMAKE_BUILD_DIR = "build_output"
 
