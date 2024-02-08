@@ -10,7 +10,17 @@ import argparse
 BIFROST_JSON_VERSION = "1.0.0"
 
 PLATFORM_INFO = {
-    "Windows": {},
+    "Windows": {
+        "bifrost_path": "C:\\Program Files\\Autodesk\\Bifrost\\",
+        "nice_platform_name": "windows",
+        "vswhere_path": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\vswhere.exe",
+        # Only 2019 is official supported at the time of writing,
+        # but 2019 build tools can be installed in 2022 as well and they work
+        "visual_studio_version_map": {
+            "2022": "17",
+            "2019": "16",
+        }
+    },
     "Darwin": {
         "bifrost_path": "/Applications/Autodesk/bifrost/",
         "nice_platform_name": "macOS"
@@ -26,9 +36,8 @@ def check_cmake_exists():
     try:
         subprocess.check_call(["cmake", "--version"])
         build_script_print("CMake found on system PATH")
-    except:
-        build_script_print("There was an error finding CMake. Check that CMake is on the system PATH")
-        raise
+    except Exception as e:
+        raise Exception("There was an error finding CMake. Check that CMake is on the system PATH") from e
 
 def get_bifrost_install_path(platform_name):
     base_bifrost_install_path = PLATFORM_INFO[platform_name]["bifrost_path"]
@@ -65,9 +74,11 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release):
     if platform_name == "Darwin":
         build_args.append(get_macOS_architecture(is_release))
 
+    if platform_name == "Windows":
+        build_args += set_windows_compiler()
+
     release_name = generate_release_name(platform_name, bifrost_install_path)
     build_args.append("-DCMAKE_INSTALL_PREFIX={}".format(release_name))
-
 
     subprocess.check_call(build_args)
 
@@ -102,6 +113,34 @@ def generate_release_name(platform_name, bifrost_install_path):
         PLATFORM_INFO[platform_name]["nice_platform_name"],
         bif_install_version
     )
+
+
+def set_windows_compiler():
+    vswhere_path = PLATFORM_INFO["Windows"]["vswhere_path"]
+    try:
+        vs_version_year = subprocess.check_output([
+            vswhere_path, "-latest", "-property",
+            "catalog_productLineVersion"
+        ]).decode().rstrip("\r\n")
+    except Exception as e:
+        raise Exception(
+            ("No valid Visual Studio Install found with standard vswhere.exe path:\n"
+             "{}".format(vswhere_path))
+        ) from e
+    build_script_print("Visual Studio version is: {}".format(vs_version_year))
+
+    vs_version_num = PLATFORM_INFO["Windows"]["visual_studio_version_map"][vs_version_year]
+    build_args = ["-G Visual Studio {} {}".format(vs_version_num, vs_version_year)]
+    if vs_version_year >= "2022":
+        # v.142 is Visual Studio 2019 Build tools. Must be installed manually in Visual Studio 2022
+        build_script_print(
+            (
+                "Visual Studio 2022 or higher detected. Please make sure to manually install the 2019 build tools\n" 
+                "inside of Visual Studio 2022 (or higher), as only the 2019 tools are compatible with Bifrost SDK\n"
+             )
+        )
+        build_args += ["-T v142"]
+    return build_args
 
 def get_macOS_architecture(is_release):
     build_flag = "-DCMAKE_OSX_ARCHITECTURES="
