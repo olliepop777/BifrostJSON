@@ -1,4 +1,5 @@
 import os
+import shutil
 import subprocess
 import platform
 import re
@@ -66,7 +67,7 @@ def get_bifrost_install_path(platform_name):
 
     return os.path.join(maya_version_path, max_bifrost_version, "bifrost")
 
-def build_with_cmake(bifrost_install_path, platform_name, is_release):
+def build_with_cmake(bifrost_install_path, platform_name, is_release, is_fresh_build):
     build_args = [
         "cmake", "-S", ".",
         "-B", CMAKE_BUILD_DIR,
@@ -87,8 +88,11 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release):
 
     if platform_name == "Windows":
         build_args += set_windows_compiler()
-    subprocess.check_call(build_args)
 
+    if is_release or is_fresh_build:
+        remove_old_build_dirs(release_name)
+
+    subprocess.check_call(build_args)
     # Build the operator
     subprocess.check_call(
         [
@@ -165,6 +169,19 @@ def get_macOS_architecture(is_release, bif_install_version):
         return build_flag + "arm64"
     else:
         return build_flag + "x86_64"
+    
+def remove_old_build_dirs(release_name):
+    project_root_path = os.path.dirname(os.path.realpath(__file__))
+
+    build_output_dir = os.path.join(project_root_path, CMAKE_BUILD_DIR)
+    release_package_dir = os.path.join(project_root_path, release_name)
+
+    if os.path.isdir(build_output_dir):
+        shutil.rmtree(build_output_dir)
+        build_script_print("Removed build directory:\n {}".format(build_output_dir))
+    if os.path.isdir(release_package_dir):
+        shutil.rmtree(release_package_dir)
+        build_script_print("Removed build directory:\n {}".format(release_package_dir))
 
 def build_script_print(print_msg):
     print("PYTHON_BIFROST_BUILD_SCRIPT - " + print_msg)
@@ -172,6 +189,7 @@ def build_script_print(print_msg):
 def main(args):
     is_release = args.release
     bifrost_install_path = args.bifrost_path
+    is_fresh_build = args.fresh_build
 
     check_cmake_exists()
     platform_name = platform.system()
@@ -179,12 +197,13 @@ def main(args):
         bifrost_install_path = get_bifrost_install_path(platform_name)
         build_script_print("Detected Bifrost install path: {}".format(bifrost_install_path))
 
-    build_with_cmake(bifrost_install_path, platform_name, is_release)
+    build_with_cmake(bifrost_install_path, platform_name, is_release, is_fresh_build)
 
 def setup_args():
     parser = argparse.ArgumentParser(description="Build the BifrostJSON operators and helpers")
     parser.add_argument("-r", "--release", action="store_true", help="If specified, builds for public release")
     parser.add_argument("-bp", "--bifrost-path", help="Specify an alternate path for the Bifrost install")
+    parser.add_argument("-f", "--fresh-build", action="store_true", help="Remove old build directories if they exist")
     args = parser.parse_args()
     return args
 
