@@ -23,7 +23,8 @@ PLATFORM_INFO = {
     },
     "Darwin": {
         "bifrost_path": "/Applications/Autodesk/bifrost/",
-        "nice_platform_name": "macOS"
+        "nice_platform_name": "macOS",
+        "min_arm_arch_bif_version": "2.7.0.0"
     },
     "Linux": {
         "bifrost_path": "/usr/autodesk/bifrost/",
@@ -31,6 +32,9 @@ PLATFORM_INFO = {
     }
 }
 CMAKE_BUILD_DIR = "build_output"
+
+# Checks
+MIN_BIF_SDK_SUPPORT = "2.5.0.0"
 
 def check_cmake_exists():
     try:
@@ -71,15 +75,18 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release):
         "-DCMAKE_BUILD_TYPE=Release"
     ]
 
+    release_data = generate_release_data(platform_name, bifrost_install_path)
+    release_name = release_data["release_name"]
+    bif_install_version = release_data["bif_install_version"]
+    if bif_install_version < MIN_BIF_SDK_SUPPORT:
+        raise Exception("The Bifrost operator SDK requires at least Bifrost version {}".format(MIN_BIF_SDK_SUPPORT))
+    build_args.append("-DCMAKE_INSTALL_PREFIX={}".format(release_name))
+
     if platform_name == "Darwin":
-        build_args.append(get_macOS_architecture(is_release))
+        build_args.append(get_macOS_architecture(is_release, bif_install_version))
 
     if platform_name == "Windows":
         build_args += set_windows_compiler()
-
-    release_name = generate_release_name(platform_name, bifrost_install_path)
-    build_args.append("-DCMAKE_INSTALL_PREFIX={}".format(release_name))
-
     subprocess.check_call(build_args)
 
     # Build the operator
@@ -91,7 +98,7 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release):
         ]
     )
 
-def generate_release_name(platform_name, bifrost_install_path):
+def generate_release_data(platform_name, bifrost_install_path):
     success = True
     try:
         bif_install_version = os.path.split(bifrost_install_path)[0]
@@ -108,11 +115,14 @@ def generate_release_name(platform_name, bifrost_install_path):
             .format(bifrost_install_path)
         )
 
-    return "BifrostJSON_v{}_{}_bif{}".format(
-        BIFROST_JSON_VERSION,
-        PLATFORM_INFO[platform_name]["nice_platform_name"],
-        bif_install_version
-    )
+    return {
+        "release_name": "BifrostJSON_v{}_{}_bif{}".format(
+            BIFROST_JSON_VERSION,
+            PLATFORM_INFO[platform_name]["nice_platform_name"],
+            bif_install_version
+        ),
+        "bif_install_version": bif_install_version
+    }
 
 
 def set_windows_compiler():
@@ -142,15 +152,16 @@ def set_windows_compiler():
         build_args += ["-T v142"]
     return build_args
 
-def get_macOS_architecture(is_release):
+def get_macOS_architecture(is_release, bif_install_version):
     build_flag = "-DCMAKE_OSX_ARCHITECTURES="
-    if is_release:
+    has_bifrost_arm_support = (bif_install_version >= PLATFORM_INFO["Darwin"]["min_arm_arch_bif_version"])
+    if is_release and has_bifrost_arm_support:
         # Build a universal binary for public releases
         return build_flag + "arm64;x86_64"
     
     # Just build based off the system architecture in normal builds
     arch = platform.processor()
-    if arch == "arm":
+    if has_bifrost_arm_support and arch == "arm":
         return build_flag + "arm64"
     else:
         return build_flag + "x86_64"
