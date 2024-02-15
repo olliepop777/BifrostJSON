@@ -276,7 +276,18 @@ std::size_t get_array_type_info(json& json_data,
     ArrayTypeInfo& array_type_info)
 {
     auto first_iter = json_data.begin();
-    json::value_t first_type = first_iter->type();
+    bool is_empty_arr = first_iter == json_data.end();
+    json::value_t first_type;
+    if (!is_empty_arr) {
+        first_type = first_iter->type();
+    } else {
+        if (!array_type_info.type_is_set) {
+            // If the array is empty, we still need a type
+            first_type = ArrayTypeInfo::DEFAULT_ARRAY_TYPE;
+        } else {
+            first_type = array_type_info.json_type;
+        }
+    }
     bool level_contains_array = false;
     std::size_t prev_cur_depth = 0;
     std::size_t cur_depth = 0;
@@ -288,7 +299,7 @@ std::size_t get_array_type_info(json& json_data,
         if (iter->type() != first_type) {
             if (is_equivalent_number_type(first_type, iter->type())) {
                 // If they are mixed then force everything to a floating point type
-                first_type = json::value_t::number_float;
+                first_type = ArrayTypeInfo::DEFAULT_ARRAY_TYPE;
             } else {
                 array_type_info.is_homogenous = false;
             }
@@ -309,10 +320,13 @@ std::size_t get_array_type_info(json& json_data,
 
     if (!level_contains_array) {
         // Check that all the arrays in the level are the same type
-        if (array_type_info.type_is_set && array_type_info.json_type != first_type) {
+        if (array_type_info.type_is_set && array_type_info.json_type != first_type && !is_empty_arr) {
             array_type_info.is_homogenous = false;
         } else {
-            array_type_info.type_is_set = true;
+            // If the array is empty, let the type be set by other arrays fluidly
+            if (!is_empty_arr) {
+                array_type_info.type_is_set = true;
+            }
             array_type_info.json_type = first_type;
         }
         return 1;

@@ -39,6 +39,7 @@ void set_read_settings(
 
 struct ArrayTypeInfo {
     static const std::size_t MAX_NESTED_DEPTH = 3;
+    static const json::value_t DEFAULT_ARRAY_TYPE = json::value_t::number_float;
 
     bool is_homogenous = true;
     json::value_t json_type = json::value_t::null;
