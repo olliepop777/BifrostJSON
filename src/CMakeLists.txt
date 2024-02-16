@@ -21,8 +21,8 @@ set( headers_to_parse
 bifrost_header_parser( 
     BifrostJSONJsonFiles  # Name of the target.
     "json"                 # Install dir - relative to install prefix.
-    INCLUDES    ${CMAKE_CURRENT_SOURCE_DIR}
-    INPUTS      ${headers_to_parse})
+    INCLUDE_DIRS    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${HEADER_FILE_ARG}      ${headers_to_parse})
 
 # Create config json file to load the bifrost pack
 set( CONFIG_PACK_VERSION "${PROJECT_VERSION}")

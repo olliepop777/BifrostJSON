@@ -36,6 +36,7 @@ CMAKE_BUILD_DIR = "build_output"
 
 # Checks
 MIN_BIF_SDK_SUPPORT = "2.5.0.0"
+MIN_NO_DEPRECATED_ARGS_VERSION = "2.8.0.0"
 
 def check_cmake_exists():
     try:
@@ -83,6 +84,10 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release, is_fresh_b
         raise Exception("The Bifrost operator SDK requires at least Bifrost version {}".format(MIN_BIF_SDK_SUPPORT))
     build_args.append("-DCMAKE_INSTALL_PREFIX={}".format(release_name))
 
+    # Some cmake function args were deperecated with Bifrost 2.8
+    # Need to check the version and pass the compatible arg to compile on older versions
+    build_args += check_deprecated_cmake_args(bif_install_version)
+
     if platform_name == "Darwin":
         build_args.append(get_macOS_architecture(is_release, bif_install_version))
 
@@ -101,6 +106,12 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release, is_fresh_b
             "--target", "install"
         ]
     )
+
+def check_deprecated_cmake_args(bif_install_version):
+    if bif_install_version < MIN_NO_DEPRECATED_ARGS_VERSION:
+        return ["-DUSE_DEPRECATED_HEADER_PARSER_ARGS=ON"]
+    else:
+        return []
 
 def generate_release_data(platform_name, bifrost_install_path):
     success = True
