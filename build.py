@@ -25,7 +25,8 @@ PLATFORM_INFO = {
     "Darwin": {
         "bifrost_path": "/Applications/Autodesk/bifrost/",
         "nice_platform_name": "macOS",
-        "min_arm_arch_bif_version": "2.7.0.0"
+        "min_arm_arch_bif_version": "2.7.0.0",
+        "min_arm_arch_maya_version": "maya2024"
     },
     "Linux": {
         "bifrost_path": "/usr/autodesk/bifrost/",
@@ -50,14 +51,17 @@ def get_bifrost_install_path(platform_name):
     max_maya_version = None
     max_bifrost_version = None
     
-    if os.path.exists(base_bifrost_install_path):
-        maya_versions = [d for d in os.listdir(base_bifrost_install_path) if os.path.isdir(os.path.join(base_bifrost_install_path, d))]
-        max_maya_version = max(maya_versions)
+    try:
+        if os.path.exists(base_bifrost_install_path):
+            maya_versions = [d for d in os.listdir(base_bifrost_install_path) if os.path.isdir(os.path.join(base_bifrost_install_path, d))]
+            max_maya_version = max(maya_versions)
 
-    if max_maya_version:
-        maya_version_path = os.path.join(base_bifrost_install_path, max_maya_version)
-        bifrost_versions = [d for d in os.listdir(maya_version_path) if os.path.isdir(os.path.join(maya_version_path, d))]
-        max_bifrost_version = max(bifrost_versions)
+        if max_maya_version:
+            maya_version_path = os.path.join(base_bifrost_install_path, max_maya_version)
+            bifrost_versions = [d for d in os.listdir(maya_version_path) if os.path.isdir(os.path.join(maya_version_path, d))]
+            max_bifrost_version = max(bifrost_versions)
+    except:
+        pass
 
     if not max_bifrost_version:
         raise FileNotFoundError(
@@ -80,8 +84,11 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release, is_fresh_b
     release_data = generate_release_data(platform_name, bifrost_install_path)
     release_name = release_data["release_name"]
     bif_install_version = release_data["bif_install_version"]
+    maya_install_version = release_data["maya_install_version"]
     if bif_install_version < MIN_BIF_SDK_SUPPORT:
         raise Exception("The Bifrost operator SDK requires at least Bifrost version {}".format(MIN_BIF_SDK_SUPPORT))
+    build_script_print("Bifrost version is: {}".format(bif_install_version))
+    build_script_print("Maya version is: {}".format(maya_install_version))
     build_args.append("-DCMAKE_INSTALL_PREFIX={}".format(release_name))
 
     # Some cmake function args were deperecated with Bifrost 2.8
@@ -89,7 +96,7 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release, is_fresh_b
     build_args += check_deprecated_cmake_args(bif_install_version)
 
     if platform_name == "Darwin":
-        build_args.append(get_macOS_architecture(is_release, bif_install_version))
+        build_args.append(get_macOS_architecture(is_release, bif_install_version, maya_install_version))
 
     if platform_name == "Windows":
         build_args += set_windows_compiler()
@@ -116,17 +123,22 @@ def check_deprecated_cmake_args(bif_install_version):
 def generate_release_data(platform_name, bifrost_install_path):
     success = True
     try:
-        bif_install_version = os.path.split(bifrost_install_path)[0]
-        bif_install_version = os.path.split(bif_install_version)[1]
-        # Matches a version string like "2.7.1.1"
+        path_split = os.path.split(bifrost_install_path)[0]
+        path_split, bif_install_version = os.path.split(path_split)
+        maya_install_version = os.path.split(path_split)[1].lower()
+        # Matches a Bifrost version string like "2.7.1.1"
         pattern = re.compile(r'^\d+(\.\d+){3}$')
         is_valid_bif_path_version = bool(pattern.match(bif_install_version))
-        success = success and is_valid_bif_path_version
+        success = is_valid_bif_path_version
+        # Matches a Maya version string like "maya2023"
+        pattern = re.compile(r'^maya\d{4}$')
+        is_valid_maya_path_version = bool(pattern.match(maya_install_version))
+        success = success and is_valid_maya_path_version
     except:
         success = False
     if not success:
         raise Exception(
-            "Bifrost version could not be extracted from bifrost location: {}"
+            "Bifrost or Maya version could not be extracted from bifrost location: {}"
             .format(bifrost_install_path)
         )
 
@@ -136,7 +148,8 @@ def generate_release_data(platform_name, bifrost_install_path):
             PLATFORM_INFO[platform_name]["nice_platform_name"],
             bif_install_version
         ),
-        "bif_install_version": bif_install_version
+        "bif_install_version": bif_install_version,
+        "maya_install_version": maya_install_version
     }
 
 
@@ -167,9 +180,10 @@ def set_windows_compiler():
         build_args += ["-T v142"]
     return build_args
 
-def get_macOS_architecture(is_release, bif_install_version):
+def get_macOS_architecture(is_release, bif_install_version, maya_install_version):
     build_flag = "-DCMAKE_OSX_ARCHITECTURES="
-    has_bifrost_arm_support = (bif_install_version >= PLATFORM_INFO["Darwin"]["min_arm_arch_bif_version"])
+    has_bifrost_arm_support = (bif_install_version >= PLATFORM_INFO["Darwin"]["min_arm_arch_bif_version"]
+                               and maya_install_version >= PLATFORM_INFO["Darwin"]["min_arm_arch_maya_version"])
     if is_release and has_bifrost_arm_support:
         # Build a universal binary for public releases
         return build_flag + "arm64;x86_64"
@@ -207,6 +221,8 @@ def main(args):
     if not bifrost_install_path:
         bifrost_install_path = get_bifrost_install_path(platform_name)
         build_script_print("Detected Bifrost install path: {}".format(bifrost_install_path))
+    else:
+        build_script_print("Passed Bifrost install path: {}".format(bifrost_install_path))
 
     build_with_cmake(bifrost_install_path, platform_name, is_release, is_fresh_build)
 
