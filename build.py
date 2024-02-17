@@ -20,7 +20,8 @@ PLATFORM_INFO = {
         "visual_studio_version_map": {
             "2022": "17",
             "2019": "16",
-        }
+        },
+        "min_visual_studio_version": "2019"
     },
     "Darwin": {
         "bifrost_path": "/Applications/Autodesk/bifrost/",
@@ -165,6 +166,9 @@ def set_windows_compiler():
             ("No valid Visual Studio Install found with standard vswhere.exe path:\n"
              "{}".format(vswhere_path))
         ) from e
+    min_visual_studio_version = PLATFORM_INFO["Windows"]["min_visual_studio_version"]
+    if vs_version_year < min_visual_studio_version:
+        raise Exception("Miniumum Visual Studio version required is {}".format(min_visual_studio_version))
     build_script_print("Visual Studio version is: {}".format(vs_version_year))
 
     vs_version_num = PLATFORM_INFO["Windows"]["visual_studio_version_map"][vs_version_year]
