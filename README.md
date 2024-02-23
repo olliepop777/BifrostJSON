@@ -2,6 +2,8 @@
 
 BifrostJSON is a library for interfacing with JSON data inside the Bifrost graph visual programming interface for Autodesk Maya. It allows for translating JSON data into the corresponding Bifrost types.
 
+Usage video: https://youtu.be/xj2GzIATwXg
+
 ## Features
 * Read JSON data from a file on disk or an Amino String input
 * Helper nodes to get and set data inside the Bifrost graph via expression, instead of chaining together many get/set nodes in arrays/Objects
