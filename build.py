@@ -121,7 +121,9 @@ def build_with_cmake(bifrost_install_path, platform_name, is_release, is_fresh_b
     )
 
 def check_deprecated_cmake_args(bif_install_version):
-    if bif_install_version < MIN_NO_DEPRECATED_ARGS_VERSION:
+    # The min version will be first if it's compatible, needed for comparing strings
+    bif_version_compatibility = sorted([MIN_NO_DEPRECATED_ARGS_VERSION, bif_install_version], key=version_sort_function)[0]
+    if bif_version_compatibility != MIN_NO_DEPRECATED_ARGS_VERSION:
         return ["-DUSE_DEPRECATED_HEADER_PARSER_ARGS=ON"]
     else:
         return []
