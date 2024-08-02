@@ -8,7 +8,7 @@ import argparse
 # Basic Usage: python3 build.py
 # Help: python3 build.py --help
 
-BIFROST_JSON_VERSION = "1.0.1"
+BIFROST_JSON_VERSION = "1.0.2"
 
 PLATFORM_INFO = {
     "Windows": {
@@ -189,6 +189,7 @@ def set_windows_compiler():
              )
         )
         build_args += ["-T v142"]
+        build_args += ["-A x64"]
     return build_args
 
 def get_macOS_architecture(is_release, bif_install_version, maya_install_version):
