@@ -8,7 +8,7 @@ import argparse
 # Basic Usage: python3 build.py
 # Help: python3 build.py --help
 
-BIFROST_JSON_VERSION = "1.0.2"
+BIFROST_JSON_VERSION = "1.1.0"
 
 PLATFORM_INFO = {
     "Windows": {
