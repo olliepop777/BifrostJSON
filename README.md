@@ -1,5 +1,11 @@
 # BifrostJSON
 
+## <span style="color:red">This repository has been archived</span>
+
+**BifrostJSON has moved to [BifrostFileIO](https://github.com/olliepop777/BifrostFileIO)**
+
+<hr/>
+
 BifrostJSON is a library for interfacing with JSON data inside the Bifrost graph visual programming interface for Autodesk Maya. It allows for translating JSON data into the corresponding Bifrost types.
 
 Usage video: https://youtu.be/xj2GzIATwXg
